@@ -1,0 +1,38 @@
+
+.jumbotron {
+    text-align: center;
+    background: white;
+    color: Navy;
+    border: navy;
+    padding-top: 15px;
+   
+}
+
+#start_btn {
+    background:navy;
+    color:white;
+}
+
+#answer{
+    text-align:center;
+    background: navy;
+    color:white;
+    padding:50px;
+    margin-bottom: 10px;
+
+}
+
+#guess_remain {
+    text-align:center;
+    background: navy;
+    color:white;
+    padding:40px;
+    margin-bottom: 10px;
+}
+
+#incorrect_guess{
+    text-align:center;
+    background: navy;
+    color:white;
+    padding:40px;
+}
