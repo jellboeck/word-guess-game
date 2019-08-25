@@ -6,9 +6,6 @@ var wordList = ["acres", "adult" , "arrangement" , "advice" , "attempt" , "Augus
 
 //Choosing the word from the array
 var word = wordList[Math.floor(Math.random() * wordList.length)];
-
-//Variables
-
 var length = word.length;
 var displayLength = [length]
 var guessesLeft = 10;
@@ -20,6 +17,7 @@ var wordArray = word.split("");
 
 console.log(word)
 console.log(length);
+console.log(wordArray);
 
 //Create the underscores based on the length of the words
 
@@ -32,10 +30,10 @@ for ( var i = 0; i <  word.length;  i++) {
 }
 document.getElementById("answer").innerHTML = displayAnswer;
 console.log(displayAnswer)
+document.getElementById("guess_remain").innerHTML = guessesLeft;
 
-});
 
-//user presses key 
+//user presses key //their guess is compared to the answer
 
 document.addEventListener("keyup", function() {
 
@@ -43,14 +41,33 @@ document.addEventListener("keyup", function() {
     
     console.log(userGuess);
 
-//their guess is compared to the answer
+    for (var j= 0; j < wordArray.length; j++){
 
-    if(userGuess.indexOf(wordArray) > -1){
-        console.log(true);
+        if (userGuess == wordArray[j]){
+        
+            displayAnswer[j] = userGuess;
 
-   
-};
+        }
 
+        else {
+
+            guessesLeft--;
+
+
+        };
+
+        document.getElementById("answer").innerHTML =displayAnswer;
+    }
+
+
+
+
+
+
+
+
+
+});
 });
 
 
