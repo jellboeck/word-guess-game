@@ -2,17 +2,18 @@
 $(document).ready(function() {
 
 //Create the Array of words    
-var wordList = ["acres", "adult" , "arrangement" , "advice" , "attempt" , "August" , "Autumn" , "border" , "breeze" , "brick" , "calm" , "canal", "cast", "chose" , "claws", "coach", "constantly" , "contrast" , "cookies" , "customs", "damage" ,"deeply", "depth", "discussion", "doll", "donkey", "Egypt", "essential" ,"exchange" ,"exist", "explanation", "facing" , "film", "finest", "fireplace", "floating" ,"folks", "fort", "gargae", "grabbed","grandmother","habit", "happily", "heading"];
-
+var wordList = ["acres", "adult" , "arrangement" , "advice" , "attempt" , "border" , "breeze" , "brick" , "calm" , "canal", "cast", "chose" , "claws", "coach", "constantly" , "contrast" , "cookies" , "customs", "damage" ,"deeply", "depth", "discussion", "doll", "donkey", "essential" ,"exchange" ,"exist", "explanation", "facing" , "film", "finest", "fireplace", "floating" ,"folks", "fort", "gargae", "grabbed","grandmother","habit", "happily", "heading"];
 //Choosing the word from the array
 var word = wordList[Math.floor(Math.random() * wordList.length)];
 var length = word.length;
 var displayLength = [length]
 var guessesLeft = 10;
 var userGuess = "";
-var displayAnswer = [];
+var displayAnswer = "";
 var incorrect_guess = [];
 var wordArray = word.split("");
+var lettersRemain= displayLength;
+var letterInWord =false;
 
 
 console.log(word)
@@ -31,43 +32,71 @@ for ( var i = 0; i <  word.length;  i++) {
 document.getElementById("answer").innerHTML = displayAnswer;
 console.log(displayAnswer)
 document.getElementById("guess_remain").innerHTML = guessesLeft;
+document.getElementById("incorrect_guess").innerHTML = incorrect_guess;
 
 
 //user presses key //their guess is compared to the answer
 
-document.addEventListener("keyup", function() {
+function submit (){
+
+    document.addEventListener("keyup", function() {
 
     var userGuess = event.key;
-    
+
     console.log(userGuess);
+   
+        for (var j= 0; j <wordArray.length; j++) {
 
-    for (var j= 0; j < wordArray.length; j++){
+            if (wordArray[j] == userGuess){
 
-        if (userGuess == wordArray[j]){
-        
-            displayAnswer[j] = userGuess;
+                letterInWord = true;
+
+                console.log(letterInWord);
+
+            }
+
+        }  
+       
+        if (letterInWord == false)    {
+                
+ 
+            guessesLeft--;
+            incorrect_guess = incorrect_guess + userGuess;
+            document.getElementById("incorrect_guess").innerHTML = incorrect_guess;   
+            document.getElementById("guess_remain").innerHTML = guessesLeft;                 
 
         }
+            
+            if (letterInWord == true) {
 
-        else {
+                for (var k =0 ; k <wordArray.length; k++)
+                    if (wordArray[k] == userGuess){
+                        displayAnswer[k]= userGuess;
 
-            guessesLeft--;
+                    }
+
+            }
+
+    
+         
+
+            });
+
+            
+           
+            document.getElementById("answer").innerHTML =displayAnswer;
+            document.getElementById("guess_remain").innerHTML = guessesLeft;
+
+};
 
 
-        };
 
-        document.getElementById("answer").innerHTML =displayAnswer;
-    }
+submit()
 
+        // document.getElementById("answer").innerHTML =displayAnswer;
+    
+    
 
-
-
-
-
-
-
-
-});
 });
 
 
