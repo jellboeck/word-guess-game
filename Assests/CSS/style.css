@@ -38,6 +38,7 @@ h3 {
 #guess_remain {
     text-align:center;
     background: navy;
+    font-weight: bold;
     color:white;
     height: 100px;
     padding:40px;
@@ -47,6 +48,7 @@ h3 {
 #incorrect_guess{
     text-align:center;
     background: navy;
+    font-weight: bold;
     color:white;
     height: 100px;
     padding:40px;

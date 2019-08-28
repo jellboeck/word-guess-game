@@ -1,102 +1,99 @@
 
-$(document).ready(function() {
-
 //Create the Array of words    
 var wordList = ["acres", "adult" , "arrangement" , "advice" , "attempt" , "border" , "breeze" , "brick" , "calm" , "canal", "cast", "chose" , "claws", "coach", "constantly" , "contrast" , "cookies" , "customs", "damage" ,"deeply", "depth", "discussion", "doll", "donkey", "essential" ,"exchange" ,"exist", "explanation", "facing" , "film", "finest", "fireplace", "floating" ,"folks", "fort", "gargae", "grabbed","grandmother","habit", "happily", "heading"];
 //Choosing the word from the array
 var word = wordList[Math.floor(Math.random() * wordList.length)];
+
+//variables
 var length = word.length;
 var displayLength = [length]
 var guessesLeft = 10;
 var userGuess = "";
-var displayAnswer = "";
+var displayAnswer = [];
 var incorrect_guess = [];
 var wordArray = word.split("");
 var lettersRemain= displayLength;
-var letterInWord =false;
+var letterInWord ="";
 
 
 console.log(word)
 console.log(length);
-console.log(wordArray);
+// console.log(wordArray);
 
-//Create the underscores based on the length of the words
+// function to start the game. Clears the variables and chooses a new word at random from the word array.
 
-// $(".start_btn").on("click", function() {
+function startGame () {
+    guessesLeft = 10;
+    incorrect_guess = [];
+    userGuess= "";
+    displayAnswer=[];
+     
+    }
 
-for ( var i = 0; i <  word.length;  i++) {
-    displayLength[i] = "_ ";
-    displayAnswer= displayAnswer + displayLength[i];
-
-}
 document.getElementById("answer").innerHTML = displayAnswer;
 console.log(displayAnswer)
 document.getElementById("guess_remain").innerHTML = guessesLeft;
 document.getElementById("incorrect_guess").innerHTML = incorrect_guess;
 
 
-//user presses key //their guess is compared to the answer
 
-function submit (){
 
-    document.addEventListener("keyup", function() {
+//user presses key and their guess is captured
 
-    var userGuess = event.key;
+function submit(){
 
-    console.log(userGuess);
-   
-        for (var j= 0; j <wordArray.length; j++) {
+    // loop displays the answer as underscores
+    
+    for ( var i = 0; i <  wordArray.length;  i++) {
+        displayAnswer.push("_ ");
 
-            if (wordArray[j] == userGuess){
-
-                letterInWord = true;
-
-                console.log(letterInWord);
-
-            }
-
-        }  
-       
-        if (letterInWord == false)    {
-                
  
-            guessesLeft--;
-            incorrect_guess = incorrect_guess + userGuess;
-            document.getElementById("incorrect_guess").innerHTML = incorrect_guess;   
-            document.getElementById("guess_remain").innerHTML = guessesLeft;                 
-
-        }
-            
-            if (letterInWord == true) {
-
-                for (var k =0 ; k <wordArray.length; k++)
-                    if (wordArray[k] == userGuess){
-                        displayAnswer[k]= userGuess;
-
-                    }
-
-            }
-
+    }
+}
     
+function checkLetter() {
+
+        // if (userGuess == wordArray)  {
+
+
+            document.addEventListener("keyup", function() {
+
+                var userGuess = event.key;
+                console.log(userGuess);
+
+                for (var k = 0 ; k < word.length; k++){
+                    if (userGuess === word[k])
+                    displayAnswer[k] = userGuess;
+                    console.log(word[k]);
+                    document.getElementById("answer").innerHTML = displayAnswer.join(" ");
+    
+                        }
+            
+               
+                 
+                    }) 
          
+                }
 
-            });
-
+                // document.getElementById("incorrect_guess").innerHTML = incorrect_guess;   
+                // document.getElementById("guess_remain").innerHTML = guessesLeft; 
             
+       
+           submit()
+           checkLetter()
+
+
+          
+
+        // else {
+        //     guessesLeft--;
+        //     wordArray[k]= userGuess;
+        //     incorrect_guess.push(userGuess);
            
-            document.getElementById("answer").innerHTML =displayAnswer;
-            document.getElementById("guess_remain").innerHTML = guessesLeft;
+        // }    
 
-};
-
+  
 
 
-submit()
-
-        // document.getElementById("answer").innerHTML =displayAnswer;
-    
-    
-
-});
-
+       
 
