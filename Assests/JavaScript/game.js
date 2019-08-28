@@ -41,7 +41,8 @@ function display(){
     // loop displays the answer as underscores
     
     for ( var i = 0; i <  wordArray.length;  i++) {
-        displayAnswer.push("_ ");
+        displayAnswer.push(" _ ");
+        document.getElementById("answer").innerHTML = displayAnswer;
 
     }
 }
