@@ -1,46 +1,51 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-us"></html>
+
 <head>
- <meta charset="UTF-8">
- <title>Word Guess Game</title>
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
- <link rel="stylesheet" type="text/css" href="Assests/CSS/style.css">
+  <meta charset="UTF-8">
+  <title>Word Guess Game</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="Assests/CSS/style.css">
 
 
 </head>
 
 <body>
-    <h1></h1>
-    
-    <div class="jumbotron">
-            <h1 class="display-4">Welcome to Word Guess!</h1>
-            <p class="lead">Choose a letter on your keyboard. If it appears in the word it will appear! If not, you lose a guess. Guess the word and you win! Get to zero and the game is over.</p>
-            <hr class="my-4">
-          </div>
+  <h1></h1>
+
+  <div class="jumbotron">
+    <h1 class="display-4">Welcome to Word Guess!</h1>
+    <p class="lead">Choose a letter on your keyboard. If it appears in the word it will appear! If not, you lose a
+      guess. Guess the word and you win! Get to zero and the game is over.</p>
+    <hr class="my-4">
+    <h1 id="message"></h1>
+    <button class="btn btn-default" id="startGame">Start</button>
+  </div>
 
 
 
-    <div id="answer"></div>
+  <div id="answer"></div>
 
 
-    <div class="container">
+  <div class="container">
 
-      <div class ="row">
+    <div class="row">
 
-        <div class="col-6">
+      <div class="col-6">
 
-          <h3>Guesses Remaining</h3>
-          <div id="guess_remain">Guesses Remaining</div>
-
-        </div>
-
-        <div class="col-6">
-          <h3>Incorrect Guesses</h3>
-          <div id="incorrect_guess"> Incorrect Guesses</div>
-
-        </div>
+        <h3>Guesses Remaining</h3>
+        <div id="guess_remain">Guesses Remaining</div>
 
       </div>
+
+      <div class="col-6">
+        <h3>Incorrect Guesses</h3>
+        <div id="incorrect_guess"> Incorrect Guesses</div>
+
+      </div>
+
+    </div>
 
   </div>
 
