@@ -8,9 +8,13 @@ var guessesLeft = "";
 var userGuess = "";
 var displayAnswer = [];
 var incorrect_guess = [];
+var win = 0;
+var lose = 0;
+
+
+startGame();
 
 // function to start the game. Clears the variables and chooses a new word at random from the word array.
-startGame();
 function startGame() {
     document.getElementById("message").innerHTML = "";
     guessesLeft = 10;
@@ -51,8 +55,8 @@ document.addEventListener("keyup", function () {
     var userGuess = event.key;
     userGuess = userGuess.toLowerCase();
     console.log(userGuess);
-
     var letterInWord = false;
+
     for (var k = 0; k < word.length; k++) {
         if (userGuess === word[k].toLowerCase()) {
             displayAnswer[k] = userGuess;
@@ -60,25 +64,34 @@ document.addEventListener("keyup", function () {
             document.getElementById("answer").innerHTML = displayAnswer.join(" ");
         }
     }
-
+    //if the letter is not in the word
     if (!letterInWord) {
+
+        //add validation to see if the user has already guessed that letter. If so, it will not take a guess or push to the incorrect guess array
         if (incorrect_guess.includes(userGuess)) {
             console.log("Already Guessed")
+            // removes a guess     
         } else {
             guessesLeft--;
-            if(guessesLeft > 0){
+            //checks to see if there are guesses left. If there are then it will push the incorrect guess to the array.    
+            if (guessesLeft > 0) {
                 incorrect_guess.push(userGuess);
                 document.getElementById("incorrect_guess").innerHTML = incorrect_guess.join(", ");
                 document.getElementById("guess_remain").innerHTML = guessesLeft;
+                //if there are no guesses left then the game is over and the "you lost" message is displayed        
             } else {
-                document.getElementById("message").innerHTML = "You Lost!";
+                document.getElementById("message").innerHTML = "You Lost! The word was '" + word + "'. Better luck next time!";
                 document.getElementById("guess_remain").innerHTML = guessesLeft;
+                lose++;
+                document.getElementById("lose").innerHTML = lose;
             }
         }
-
+//checks for a win by seeing if the display answer still includes an underscore
     } else {
-        if(!displayAnswer.includes("_")){
+        if (!displayAnswer.includes("_")) {
             document.getElementById("message").innerHTML = "You Won!";
+            win++;
+            document.getElementById("win").innerHTML = win;
         }
     }
 

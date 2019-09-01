@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en-us"></html>
+<html lang="en-us">
+
+</html>
 
 <head>
   <meta charset="UTF-8">
@@ -18,15 +20,41 @@
     <h1 class="display-4">Welcome to Word Guess!</h1>
     <p class="lead">Choose a letter on your keyboard. If it appears in the word it will appear! If not, you lose a
       guess. Guess the word and you win! Get to zero and the game is over.</p>
-    <hr class="my-4">
     <h1 id="message"></h1>
-    <button class="btn btn-default" id="startGame">Start</button>
+    <button class="btn btn-default btn-lg" id="startGame">Start Game!</button>
   </div>
 
 
+  <div class="container">
 
-  <div id="answer"></div>
+      <div class="row">
+  
+        <div class="col-6">
+  
+          <h3>Guesses Remaining</h3>
+          <div id="guess_remain">Guesses Remaining</div>
+  
+        </div>
+  
+        <div class="col-6">
+          <h3>Incorrect Guesses</h3>
+          <div id="incorrect_guess"> Incorrect Guesses</div>
+  
+        </div>
+  
+      </div>
+  
+    </div>
 
+    <div class = "container">
+
+        <div class = "row">
+    
+      <div class= "col-8" id="answer"></div>
+    
+    </div>
+    
+    </div>
 
   <div class="container">
 
@@ -34,20 +62,24 @@
 
       <div class="col-6">
 
-        <h3>Guesses Remaining</h3>
-        <div id="guess_remain">Guesses Remaining</div>
+        <h3>Wins</h3>
+        <div id="win"></div>
 
       </div>
 
       <div class="col-6">
-        <h3>Incorrect Guesses</h3>
-        <div id="incorrect_guess"> Incorrect Guesses</div>
+        <h3>Losses</h3>
+        <div id="lose"> </div>
 
       </div>
 
     </div>
 
   </div>
+
+ 
+
+ 
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
